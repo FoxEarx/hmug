@@ -1,0 +1,11 @@
+{
+  "name": "hmug",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/FoxEarx/hmug.git",
+  "author": "ForEars <1228456740@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "flyio": "^0.6.14"
+  }
+}
