@@ -21,5 +21,11 @@ toast.success = function(title, duration = 3000) {
     duration
   })
 }
+toast.loading = function(title) {
+  uni.showToast({
+    title,
+    icon: "loading"
+  })
+}
 
 export default toast

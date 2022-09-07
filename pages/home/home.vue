@@ -30,14 +30,15 @@
         <view class="floor-img-box">
           <!-- 左侧大图片的盒子 -->
           <view class="left-img-box">
-            <image :src="item.product_list[0].image_src" class="left-img"
-              :style="{width:item.product_list[0].image_width+'rpx'}">
+            <image @click="goGoodList(item.product_list[0].navigator_url)" :src="item.product_list[0].image_src"
+              class="left-img" :style="{width:item.product_list[0].image_width+'rpx'}">
             </image>
           </view>
           <!-- 右侧 4 个小图片的盒子 -->
           <view class="right-img-box">
-            <view v-for="(item2,i) in item.product_list" class="right-img-item" v-if="i!==0">
-              <image :src="item2.image_src" :style="{width:item2.image_width+'rpx'}" mode="widthFix"></image>
+            <view v-for="(item2,i2) in item.product_list" class="right-img-item" v-if="i2!==0">
+              <image @click="goGoodList(item2.navigator_url)" :src="item2.image_src"
+                :style="{width:item2.image_width+'rpx'}" mode="widthFix"></image>
             </view>
           </view>
         </view>
@@ -85,6 +86,12 @@
       async getFloors() {
         const res = await getFloors()
         this.floors = res
+      },
+      goGoodList(url) {
+        // console.log(url);
+        uni.navigateTo({
+          url: "/subpkg/good-list/good-list?" + url.split("?")[1]
+        })
       }
     },
     onLoad() {
